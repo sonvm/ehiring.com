@@ -1,0 +1,29 @@
+.careers-list-block{
+    height:4em;
+}
+.careers-list-block:hover{
+    cursor: pointer;
+}
+
+.recruit-title{
+    float: left;
+    width: 80%;
+    height: 1.5em;
+    color: blue;
+    
+   font-size: 20px;
+}
+
+.recruit-short{
+    
+    float: left;
+    width: 80%;
+    height: 2.5em;
+}
+
+.recruit-detail{
+    float: right;
+    width: 20%;
+    height: 4em;
+    color: grey;
+}

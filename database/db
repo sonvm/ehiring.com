@@ -1,0 +1,506 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Aug 02, 2022 at 10:41 AM
+-- Server version: 5.7.33
+-- PHP Version: 7.4.19
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `ehiring.com`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `criterias`
+--
+
+CREATE TABLE `criterias` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `is_cost_criteria` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `criterias`
+--
+
+INSERT INTO `criterias` (`id`, `name`, `is_cost_criteria`) VALUES
+(1, 'Experience', 0),
+(2, 'Skill', 0),
+(3, 'Salary', 1),
+(4, 'Presentation', 1),
+(5, 'AAA', 1),
+(6, 'BBB', 1),
+(7, 'DDD', 1),
+(8, 'CCCCCC', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cvs`
+--
+
+CREATE TABLE `cvs` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `recruiting_id` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bod` datetime NOT NULL,
+  `address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` int(11) NOT NULL,
+  `gpa` int(11) DEFAULT NULL,
+  `status` varchar(30) NOT NULL DEFAULT 'applied'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cvs`
+--
+
+INSERT INTO `cvs` (`id`, `user_id`, `recruiting_id`, `name`, `bod`, `address`, `phone`, `gpa`, `status`) VALUES
+(1, 18, 20, 'VŨ MINH SƠN', '2022-06-10 00:00:00', 'Phòng 1801, Tòa nhà 97-99 Láng Hạ, Đống Đa, Hà Nội', 984134869, 11, 'applied'),
+(2, 18, 20, 'Bobby', '2022-06-03 00:00:00', 'Phòng 1801, Tòa nhà 97-99 Láng Hạ, Đống Đa, Hà Nội', 984134869, 234234, 'applied'),
+(3, 18, 21, 'VŨ MINH SƠN', '2022-06-11 00:00:00', 'Phòng 1801, Tòa nhà 97-99 Láng Hạ, Đống Đa, Hà Nội', 984134869, 23654, 'applied'),
+(4, 18, 21, 'VŨ MINH SƠN', '2022-06-30 00:00:00', 'Phòng 1801, Tòa nhà 97-99 Láng Hạ, Đống Đa, Hà Nội', 984134869, 123, 'applied'),
+(5, 18, 19, 'VŨ MINH SƠN', '2022-06-29 00:00:00', 'Phòng 1801, Tòa nhà 97-99 Láng Hạ, Đống Đa, Hà Nội', 984134869, 11, 'applied'),
+(7, 18, 21, 'VŨ MINH SƠN', '2022-07-29 00:00:00', 'Phòng 1801, Tòa nhà 97-99 Láng Hạ, Đống Đa, Hà Nội', 984134869, 111, 'applied'),
+(8, 18, 19, 'AAAA', '2022-06-29 00:00:00', 'asdfdsfsd dsafds', 12341234, 123, 'applied'),
+(9, 18, 21, 'Nguyen Van A', '2022-07-17 00:00:00', 'AAA', 3214233, 12, 'failed'),
+(10, 18, 25, 'VŨ MINH SƠN', '2022-07-07 00:00:00', 'Phòng 1801, Tòa nhà 97-99 Láng Hạ, Đống Đa, Hà Nội', 984134869, 123213, 'applied'),
+(11, 28, 19, 'name', '2022-07-08 00:00:00', 'Phòng 1801, Tòa nhà 97-99 Láng Hạ, Đống Đa, Hà Nội', 984134869, 213213, 'applied'),
+(12, 29, 28, 'applicant', '2022-07-01 00:00:00', 'ABCD', 123123123, 3, 'passed'),
+(13, 18, 28, 'VŨ MINH SƠN', '2022-07-02 00:00:00', 'Phòng 1801, Tòa nhà 97-99 Láng Hạ, Đống Đa, Hà Nội', 984134869, 11, 'applied'),
+(14, 21, 28, 'admin', '2022-07-12 00:00:00', 'Phòng 1801, Tòa nhà 97-99 Láng Hạ, Đống Đa, Hà Nội', 984134869, 123, 'applied');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hiring_board_members`
+--
+
+CREATE TABLE `hiring_board_members` (
+  `id` int(11) NOT NULL,
+  `recruiting_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hiring_board_members`
+--
+
+INSERT INTO `hiring_board_members` (`id`, `recruiting_id`, `user_id`) VALUES
+(8, 21, 18),
+(9, 19, 18),
+(10, 25, 18),
+(11, 28, 30),
+(12, 28, 18),
+(13, 28, 21);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `products`
+--
+
+CREATE TABLE `products` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int(11) NOT NULL,
+  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image_path` varchar(255) DEFAULT NULL,
+  `active` tinyint(1) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `products`
+--
+
+INSERT INTO `products` (`id`, `name`, `price`, `content`, `image_path`, `active`, `created_at`, `update_at`) VALUES
+(1, 'dghbfhg', 123, 'fjg hj', 'gfhdfh.jpg', 1, '2022-06-21 16:15:44', NULL),
+(2, 'dghbfhg', 123, 'erbh', 'gfhdfh.jpg', 1, '2022-06-21 16:15:54', NULL),
+(3, 'VŨ MINH SƠN', 123, 'huio[', 'gfhdfh.jpg', 1, '2022-06-21 16:16:26', NULL),
+(4, 'VŨ MINH SƠN', 123, 'sdf', 'gfhdfh.jpg', 1, '2022-06-22 07:48:14', NULL),
+(5, 'username', 123, 'dfsg', 'gfhdfh.jpg', 1, '2022-06-27 10:56:51', NULL),
+(6, 'price', 123, 'errybe', NULL, 1, '2022-06-27 11:01:32', NULL),
+(7, 'price', 123, 'errybe', NULL, 1, '2022-06-27 11:02:29', NULL),
+(8, 'ion', 10000, 'heavy metal', NULL, 1, '2022-06-27 11:02:57', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ratings`
+--
+
+CREATE TABLE `ratings` (
+  `id` int(11) NOT NULL,
+  `recruiting_id` int(11) NOT NULL,
+  `cv_id` int(11) NOT NULL,
+  `hiring_member_id` int(11) NOT NULL,
+  `criteria_id` int(11) NOT NULL,
+  `rating` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ratings`
+--
+
+INSERT INTO `ratings` (`id`, `recruiting_id`, `cv_id`, `hiring_member_id`, `criteria_id`, `rating`) VALUES
+(82, 28, 12, 18, 2, 3),
+(83, 28, 12, 18, 5, 4),
+(84, 28, 12, 18, 8, 2),
+(85, 28, 13, 18, 2, 3),
+(86, 28, 13, 18, 5, 4),
+(87, 28, 13, 18, 8, 1),
+(88, 28, 14, 18, 2, 3),
+(89, 28, 14, 18, 5, 4),
+(90, 28, 14, 18, 8, 4),
+(91, 28, 13, 30, 2, 2),
+(92, 28, 13, 30, 5, 1),
+(93, 28, 13, 30, 8, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recruitings`
+--
+
+CREATE TABLE `recruitings` (
+  `id` int(11) NOT NULL,
+  `owner_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `criteria` int(11) NOT NULL,
+  `starting_date` datetime DEFAULT NULL,
+  `closing_date` datetime DEFAULT NULL,
+  `status` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `recruitings`
+--
+
+INSERT INTO `recruitings` (`id`, `owner_id`, `title`, `description`, `criteria`, `starting_date`, `closing_date`, `status`) VALUES
+(19, 18, 'New 1', 'You do ab\r\n\r\nReq\r\n------------\r\nsdf dfsgdf h\r\nfdh dgh', 33, '2022-06-29 00:00:00', '2022-06-30 00:00:00', 1),
+(20, 18, 'New 2', 'xcsdvds', 2, '2022-06-23 00:00:00', '2022-06-23 00:00:00', 1),
+(21, 18, 'Senior Up .Net Engineer (HCM, HN, DN)', '-Top 3 Reasons To Join Us\r\n+Professional and flexible working environment\r\n+Career development and international assignments\r\n+Attractive salary and reward initiatives\r\n+Job Description\r\nTo write, review, and maintain code in compliance with the established coding quality standards of the company;\r\n\r\n-To write unit tests and run through all the test cases for assigned tasks and ensure all cases are tested and passed before release for testing;\r\n-To self-train on new technologies;\r\n-To coach junior members;\r\n-To implement strictly all the customer’s processes if being requested, the company’s processes and systems complied with CMMi standard;\r\n-To document detailed designs as part of the design team (lead by TA or SA);\r\n\r\nParticipate and contribute, if possible, to DevOps and Automation activities in some way as a daily part of the project delivery such as participating in the creation of relevant DevOps/Automation testing frameworks, scripting and execution even if the specialist roles act as the focal point;\r\n\r\n-To perform other tasks assigned by the Line Manager, Project Manager & Technical Manager.\r\n\r\n-Your Skills and Experience\r\n+Good knowledge of OOP, clean code;\r\n+Proficient C#, .NET, ASP.NET Core, MVC, Web API, Entity Framework Core, and SQL Server;\r\n+Good at writing Unit Tests with mocking frameworks;\r\n+Good knowledge of programming patterns and principles e.g Separation of Concern, Repository Pattern, UnitOfWork, DRY, SOLID;\r\n+Basic knowledge of HTML, CSS, JavaScript. Having experience of any JavaScript front-end framework e.g. Angular, React, Vue;\r\n+Good knowledge of security and performance optimization;\r\n-Be able to do code review and support junior developers;\r\n-Basic knowledge of cloud technologies e.g. Azure, AWS;\r\n-Basic knowledge of Docker, DevOps;\r\n-Knowledge of CMS, CRM systems such as SharePoint, Microsoft Dynamics is a plus.\r\nWhy You\'ll Love Working Here\r\n13 month salary per year\r\nPerformance bonus (up to 2-month salary)\r\nFlexible option bonus for good performers & retention bonus for outstanding performers\r\nSocial – Health – Insurance paid fully\r\nHealthcare: Annual health check-up, Premium Health Insurance (plus 1 slot for your dependent)\r\nAnnual leaves: 14 ~ 18 days\r\nClubs program: Football, Badminton, Swimming, Tennis, Rock, Yoga…\r\nTraining courses: Technical skills – Soft skills – English\r\nPeople are extremely important to us and that’s why we have a clear vision: to make NashTech a great place to work in its sector. We pride ourselves on:\r\n\r\nProfessional and Flexible Working Environment\r\nGreat Teamwork\r\nInternational Assignments\r\nWeCare - WeShare - WeDare - WeInnovate Engagement Program', 3, '2022-06-30 00:00:00', '2022-07-01 00:00:00', 0),
+(22, 18, 'A', 'efgdf', 123, '2022-06-14 00:00:00', '2022-06-30 00:00:00', 1),
+(23, 18, 'rgdfg', 'weqfwd', 2, '2022-06-30 00:00:00', '2022-07-07 00:00:00', 1),
+(24, 18, 'f wevgwefbv', 'sdfvsdf', 3, '2022-06-30 00:00:00', '2022-06-28 00:00:00', 1),
+(25, 18, 'more', 'xdvbfdbfdb', 123432, '2022-06-30 00:00:00', '2022-07-09 00:00:00', 1),
+(26, 18, 'dfsgfdsbv', 'dfsb fdsb', 6, '2022-07-08 00:00:00', '2022-06-28 00:00:00', 1),
+(27, 18, 'aaaa', 'dsafadfsdf\r\n<b> asdasdasd </b>', 2, '2022-07-21 00:00:00', '2022-07-22 00:00:00', 1),
+(28, 30, 'Summer Recruitment', 'temp\r\ntemp\r\ntemo\r\n\r\nhey hey hey', 1, '2022-07-12 00:00:00', '2022-07-19 00:00:00', 1),
+(29, 30, 'July Job', 'saf\r\nsadf\r\nsdf\r\nsd\r\nf\r\nsd\r\nfsd', 2, '2022-07-12 00:00:00', '2022-07-27 00:00:00', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recruiting_criteria`
+--
+
+CREATE TABLE `recruiting_criteria` (
+  `id` int(11) NOT NULL,
+  `recruiting_id` int(11) NOT NULL,
+  `criteria_id` int(11) NOT NULL,
+  `weight` float DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `recruiting_criteria`
+--
+
+INSERT INTO `recruiting_criteria` (`id`, `recruiting_id`, `criteria_id`, `weight`) VALUES
+(40, 19, 1, 1),
+(41, 19, 3, 2),
+(50, 28, 2, 1),
+(51, 28, 5, 1),
+(52, 28, 8, 1),
+(55, 21, 3, 10),
+(56, 21, 7, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `name`) VALUES
+(1, 'applicant'),
+(2, 'employee'),
+(3, 'admin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`) VALUES
+(18, 'VŨ MINH SƠN', 'sonvm99@gmail.com', '$2y$10$o22GwpmT7brAjKaK/dy1GuxIobuzgC0A3EoAveR9fVIi5sEGqWFq.'),
+(19, 'Teo Man', 'aaa@aaa.com', '$2y$10$RcSNwwcyd0P1oir3jLWv.ecmL8IsXoB7oEqDxyqYvqsw7/Dbh5pfS'),
+(20, 'Employee 1', 'emp1@test.test', '$2y$10$ltszB58Ii/TnIri2F8tNSeT7Kvjg9X1z/BkfyX9CjkyAVTX/hFBHS'),
+(21, 'admin', 'admin@test.test', '$2y$10$ib5pzzOU.RfdpK31Pwv1ge.i80abY3MjBUZcl73TBU2ZWNl3zuB72'),
+(22, 'aaa', 'aaa@sdfsdf.fghdgh', '$2y$10$JEoeXoMxM58nJaidKeF8gO8A7jArl/8Puwc0xXuNO4LdekKFC87Ui'),
+(23, 'asdasda', 'gh@gmail.com', '$2y$10$/aujOlu1KuCuw9AqMlwNeOvyyxPRqp8LTnLX6ohGcXhV5zQchcS52'),
+(24, 'asdasda', 'apapa@aaa.aaa', '$2y$10$mY5YxZeDpQUitZfW.qBxbOI2R6ItOi213kCnvsF48P1YM6iH28FTW'),
+(25, 'asdasda', 'asdsadsadasd@dafasdasd.asdsd', '$2y$10$mlZ45L1pkgYhqAn7mPlJeOdxqmKgJvlURdGmKSMm8SYHMLBjZwdgW'),
+(27, 'new one', 'test@hey.hey', '$2y$10$tB7cuLMup/kb4sUiUPnvnutj1L9U3ojRILaWyidbhIrO.rP.lOhIm'),
+(28, 'name', 'aaa@bb.ccc', '$2y$10$pTPbA5kMgkVAwvuOH9fQR.U2Nm/6UNxDSEoPta1d5IT6WtqFS6bzK'),
+(29, 'applicant', 'applicant@test.test', '$2y$10$WgZWIulDMSzbnWnWV9uLNeU0uyaWwg0rjH8gPLyIUfTqGn4rfn4gG'),
+(30, 'employee', 'employee@test.test', '$2y$10$W.puAC0ltqyRMD2WlQgWcOlFHSDLx/oAEVCbbGtz6FgvSOQkDn/UG');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_roles`
+--
+
+CREATE TABLE `user_roles` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `role_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_roles`
+--
+
+INSERT INTO `user_roles` (`id`, `user_id`, `role_id`) VALUES
+(1, 18, 1),
+(3, 20, 2),
+(4, 21, 3),
+(5, 18, 2),
+(6, 18, 3),
+(7, 27, 1),
+(8, 28, 1),
+(9, 29, 1),
+(10, 30, 2);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `criterias`
+--
+ALTER TABLE `criterias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `cvs`
+--
+ALTER TABLE `cvs`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `recruiting_id` (`recruiting_id`);
+
+--
+-- Indexes for table `hiring_board_members`
+--
+ALTER TABLE `hiring_board_members`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `recruiting_id` (`recruiting_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `ratings`
+--
+ALTER TABLE `ratings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `recruitings`
+--
+ALTER TABLE `recruitings`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `owner_id` (`owner_id`);
+
+--
+-- Indexes for table `recruiting_criteria`
+--
+ALTER TABLE `recruiting_criteria`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `user_roles`
+--
+ALTER TABLE `user_roles`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `role_id` (`role_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `criterias`
+--
+ALTER TABLE `criterias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `cvs`
+--
+ALTER TABLE `cvs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `hiring_board_members`
+--
+ALTER TABLE `hiring_board_members`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `ratings`
+--
+ALTER TABLE `ratings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+
+--
+-- AUTO_INCREMENT for table `recruitings`
+--
+ALTER TABLE `recruitings`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+
+--
+-- AUTO_INCREMENT for table `recruiting_criteria`
+--
+ALTER TABLE `recruiting_criteria`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT for table `user_roles`
+--
+ALTER TABLE `user_roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cvs`
+--
+ALTER TABLE `cvs`
+  ADD CONSTRAINT `cvs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  ADD CONSTRAINT `cvs_ibfk_2` FOREIGN KEY (`recruiting_id`) REFERENCES `recruitings` (`id`);
+
+--
+-- Constraints for table `hiring_board_members`
+--
+ALTER TABLE `hiring_board_members`
+  ADD CONSTRAINT `hiring_board_members_ibfk_1` FOREIGN KEY (`recruiting_id`) REFERENCES `recruitings` (`id`),
+  ADD CONSTRAINT `hiring_board_members_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `recruitings`
+--
+ALTER TABLE `recruitings`
+  ADD CONSTRAINT `recruitings_ibfk_1` FOREIGN KEY (`owner_id`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `user_roles`
+--
+ALTER TABLE `user_roles`
+  ADD CONSTRAINT `user_roles_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
+  ADD CONSTRAINT `user_roles_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -34,7 +34,7 @@ class CareerController extends Controller
 
         $validator = Validator::make($request->all(), [
             'title'       => 'required|max:255',
-            'description'      => 'required|max:3000',
+            'description'      => 'required|max:10000',
             'criteria' => 'required|gt:0',
             'startDate'    => 'required',
             'endDate' => 'required',
@@ -93,7 +93,7 @@ class CareerController extends Controller
 
         $validator = Validator::make($request->all(), [
             'title'       => 'required|max:255',
-            'description'      => 'required|max:3000',
+            'description'      => 'required|max:10000',
             'criteria' => 'required|gt:0',
             'startDate'    => 'required',
             'endDate' => 'required',

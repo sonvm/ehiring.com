@@ -21,19 +21,19 @@
 
 
 <div>
-    <h3>Create a New Criteria</h3>
 
     <div class="col-7">
         {!! Form::open(array('url' => '/criterias/create', 'class' => 'form-horizontal','method' => 'get')) !!}
+        <br>
 
         <input name="name" type="text" class="form-control" placeholder="Enter new criteria's name" aria-label="New criteria's name" aria-describedby="button-addon2">
-
+        <br>
         <div class="form-check form-switch">
 
             <input class="form-check-input" type="checkbox" name="is_cost_criteria" checked="">
             <label class="form-check-label" for="flexSwitchCheckChecked">Is Cost</label>
         </div>
-
+        <br>
         <button class="btn btn-primary" type="submit" id="button-addon2">Add Criteria</button>
 
 
@@ -126,62 +126,6 @@
             @endif
         </div>
     </div>
-
-    <div class="col-2 p-3 my-1">
-        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-        <br>
-        <div>Filter</div>
-        <div class="list-group mx-0 w-auto">
-            <label class="list-group-item d-flex gap-2">
-                <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                <span>
-                    First checkbox
-                </span>
-            </label>
-
-            <label class="list-group-item d-flex gap-2">
-                <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                <span>
-                    First checkbox
-                </span>
-            </label>
-
-            <label class="list-group-item d-flex gap-2">
-                <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                <span>
-                    First checkbox
-                </span>
-            </label>
-
-        </div>
-
-        <div>Sort</div>
-        <div class="list-group mx-0 w-auto">
-            <label class="list-group-item d-flex gap-2">
-                <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                <span>
-                    Hottest
-                </span>
-            </label>
-
-            <label class="list-group-item d-flex gap-2">
-                <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                <span>
-                    Newest
-                </span>
-            </label>
-
-            <label class="list-group-item d-flex gap-2">
-                <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                <span>
-                    Oldest
-                </span>
-            </label>
-
-        </div>
-    </div>
-
-
 
 
 </div>

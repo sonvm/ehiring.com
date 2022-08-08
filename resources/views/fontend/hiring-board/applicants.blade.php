@@ -114,58 +114,49 @@
 
 
         <div class="col-2 p-3 my-1">
-            <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-            <br>
-            <div>Filter</div>
-            <div class="list-group mx-0 w-auto">
-                <label class="list-group-item d-flex gap-2">
-                    <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                    <span>
-                        First checkbox
-                    </span>
-                </label>
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
+        <br>
 
-                <label class="list-group-item d-flex gap-2">
-                    <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                    <span>
-                        First checkbox
-                    </span>
-                </label>
+        <div>Sort</div>
+        <div class="list-group mx-0 w-auto">
+            <label class="list-group-item d-flex gap-2">
+                <input class="form-check-input flex-shrink-0" type="radio" value="" >
+                <span>
+                    Newest
+                </span>
+            </label>
+            <label class="list-group-item d-flex gap-2">
+                <input class="form-check-input flex-shrink-0" type="radio" value="" checked="">
+                <span>
+                    Oldest
+                </span>
+            </label>
+        </div>
 
-                <label class="list-group-item d-flex gap-2">
-                    <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                    <span>
-                        First checkbox
-                    </span>
-                </label>
+        <div>Filter</div>
+        <div class="list-group mx-0 w-auto">
+            <label class="list-group-item d-flex gap-2">
+                <input class="form-check-input flex-shrink-0" type="radio" value="" checked="">
+                <span>
+                    All
+                </span>
+            </label>
 
-            </div>
+            <label class="list-group-item d-flex gap-2">
+                <input class="form-check-input flex-shrink-0" type="radio" value="" >
+                <span>
+                    Rated
+                </span>
+            </label>
 
-            <div>Sort</div>
-            <div class="list-group mx-0 w-auto">
-                <label class="list-group-item d-flex gap-2">
-                    <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                    <span>
-                        Ranking
-                    </span>
-                </label>
-                <label class="list-group-item d-flex gap-2">
-                    <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                    <span>
-                        System's Score
-                    </span>
-                </label>
+            <label class="list-group-item d-flex gap-2">
+                <input class="form-check-input flex-shrink-0" type="radio" value="" >
+                <span>
+                    Not rated
+                </span>
+            </label>
 
-                <label class="list-group-item d-flex gap-2">
-                    <input class="form-check-input flex-shrink-0" type="checkbox" value="" checked="">
-                    <span>
-                        Hiring Board's Score
-                    </span>
-                </label>
-
-
-
-            </div>
+        </div>
         </div>
 
         @endif
